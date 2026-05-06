@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fahad Waseem - Python backend developer building APIs, automation workflows, data pipelines, and CRM integrations."
+    />
+    <meta
+      name="keywords"
+      content="Fahad Waseem, Python Developer, Backend Developer, Flask, Django, HubSpot API, ServiceM8, AWS Lambda, Automation"
+    />
+    <meta name="author" content="Fahad Waseem" />
+    <meta name="theme-color" content="#05070c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Fahad Waseem | Python Backend Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Fahad Waseem, a Python backend developer building APIs, automation workflows, CRM integrations, and data systems."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fahad Waseem | Python Backend Developer" />
+    <meta
+      name="twitter:description"
+      content="Python backend developer focused on APIs, automation, HubSpot integrations, AWS Lambda, and data workflows."
+    />
+    <title>Fahad Waseem | Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@500;600;700&family=Spline+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Fahad Waseem",
+        "jobTitle": "Python Backend Developer",
+        "email": "mailto:fahadwaseem756@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Paris",
+          "addressCountry": "FR"
+        },
+        "sameAs": [
+          "https://github.com/fahad756",
+          "https://linkedin.com/in/fahad-waseem"
+        ],
+        "knowsAbout": [
+          "Python",
+          "Flask",
+          "Django",
+          "REST APIs",
+          "AWS Lambda",
+          "HubSpot CRM API",
+          "ServiceM8 API",
+          "SQL",
+          "Automation"
+        ]
+      }
+    </script>
+  </head>
+  <body class="no-js">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <div class="site-loader" aria-hidden="true">
+      <div class="loader-core"></div>
+      <p>Booting Fahad.dev</p>
+    </div>
+
+    <canvas id="constellation" aria-hidden="true"></canvas>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+    <div class="noise-layer" aria-hidden="true"></div>
+    <div class="scanline-layer" aria-hidden="true"></div>
+    <div class="aurora aurora-one" aria-hidden="true"></div>
+    <div class="aurora aurora-two" aria-hidden="true"></div>
+
+    <div class="command-palette" id="command-palette" hidden>
+      <div class="command-panel" role="dialog" aria-modal="true" aria-labelledby="command-title">
+        <div class="command-head">
+          <span id="command-title">Command Matrix</span>
+          <button type="button" id="close-command" aria-label="Close command palette">Esc</button>
+        </div>
+        <div class="command-list">
+          <button type="button" data-command="#case-study">
+            <strong>Open HubSpot case study</strong>
+            <span>ServiceM8 integration architecture</span>
+          </button>
+          <button type="button" data-command="#projects">
+            <strong>Open featured builds</strong>
+            <span>Jump to project cards</span>
+          </button>
+          <button type="button" data-command="fyp">
+            <strong>Open FYP repository</strong>
+            <span>Face recognition attendance system</span>
+          </button>
+          <button type="button" data-command="#stack">
+            <strong>Open stack lab</strong>
+            <span>Switch terminal modes</span>
+          </button>
+          <button type="button" data-command="cv">
+            <strong>View CV</strong>
+            <span>Open Fahad Waseem PDF resume</span>
+          </button>
+          <button type="button" data-command="email">
+            <strong>Copy email</strong>
+            <span>fahadwaseem756@gmail.com</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand magnetic" href="#home" aria-label="Fahad Waseem home">
+        <span>FW</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#work">Work</a>
+        <a href="#case-study">Case</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-cta magnetic" href="./CV%20-%20Fahad%20Waseem.pdf" target="_blank" rel="noreferrer">
+        View CV
+      </a>
+      <button class="command-trigger magnetic" type="button" aria-label="Open command palette">
+        Ctrl K
+      </button>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="main-content" tabindex="-1">
+      <section class="hero section-shell" id="home">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="status-pill reveal">
+              <span class="live-dot"></span>
+              Paris-based backend developer open to full-time roles
+            </div>
+            <div class="hero-nameplate reveal">
+              <span>FAHAD WASEEM</span>
+              <i></i>
+              <span>BACKEND SYSTEMS</span>
+            </div>
+            <p class="eyebrow reveal">Python . APIs . Automation . Data Workflows</p>
+            <h1 class="hero-title reveal">
+              Building backend systems that move data with
+              <span>speed, clarity, and control.</span>
+            </h1>
+            <p class="hero-lede reveal">
+              I design Python services, Flask/Django APIs, AWS Lambda automations, SQL data flows,
+              and CRM integrations that reduce manual work and make business systems more reliable.
+            </p>
+            <div class="hero-actions reveal">
+              <a class="button primary magnetic" href="#case-study">View Case Study</a>
+              <a class="button ghost magnetic" href="mailto:fahadwaseem756@gmail.com">Hire / Contact</a>
+              <a class="button quiet magnetic" href="./CV%20-%20Fahad%20Waseem.pdf" download>
+                Download CV
+              </a>
+            </div>
+            <div class="hero-links reveal" aria-label="External profile links">
+              <a href="https://github.com/fahad756" target="_blank" rel="noreferrer" aria-label="Open Fahad Waseem GitHub profile">GitHub</a>
+              <a href="https://linkedin.com/in/fahad-waseem" target="_blank" rel="noreferrer" aria-label="Open Fahad Waseem LinkedIn profile">LinkedIn</a>
+              <a href="mailto:fahadwaseem756@gmail.com">Email</a>
+            </div>
+            <div class="command-hint reveal">
+              <kbd>Ctrl</kbd>
+              <kbd>K</kbd>
+              <span>Open command matrix</span>
+            </div>
+          </div>
+
+          <aside class="hero-visual reveal" aria-label="Backend systems visual">
+            <div class="system-card tilt-card">
+              <div class="card-corner corner-a"></div>
+              <div class="card-corner corner-b"></div>
+              <div class="system-topline">
+                <span>backend-core</span>
+                <span class="signal-bars"><i></i><i></i><i></i></span>
+              </div>
+              <div class="orbit-stage">
+                <div class="orbit orbit-a"></div>
+                <div class="orbit orbit-b"></div>
+                <div class="orbit orbit-c"></div>
+                <div class="core-node">
+                  <span>PY</span>
+                  <small>API</small>
+                </div>
+                <span class="satellite satellite-one">AWS</span>
+                <span class="satellite satellite-two">SQL</span>
+                <span class="satellite satellite-three">n8n</span>
+                <span class="satellite satellite-four">CRM</span>
+              </div>
+              <div class="system-terminal">
+                <p><span>$</span> sync hubspot --source sql</p>
+                <p><span>OK</span> lambda pipeline stable</p>
+                <p><span>OK</span> validation checks passed</p>
+              </div>
+              <div class="system-vitals">
+                <div>
+                  <span>Reliability</span>
+                  <strong>98%</strong>
+                </div>
+                <div>
+                  <span>Manual Work</span>
+                  <strong>-42%</strong>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="metrics-grid reveal">
+          <article>
+            <strong data-count="3">0</strong>
+            <span>years building backend systems</span>
+          </article>
+          <article>
+            <strong>API</strong>
+            <span>integrations, auth, validation, error handling</span>
+          </article>
+          <article>
+            <strong>AWS</strong>
+            <span>Lambda automation and deployment support</span>
+          </article>
+          <article>
+            <strong>CRM</strong>
+            <span>HubSpot workflows, field mapping, data sync</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="marquee-section" aria-label="Technology marquee">
+        <div class="marquee-track">
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Django</span>
+          <span>REST APIs</span>
+          <span>PostgreSQL</span>
+          <span>MySQL</span>
+          <span>OpenCV</span>
+          <span>Face Recognition</span>
+          <span>AWS Lambda</span>
+          <span>HubSpot</span>
+          <span>ServiceM8 API</span>
+          <span>Webhooks</span>
+          <span>n8n</span>
+          <span>Power Automate</span>
+          <span>Zapier</span>
+          <span>Git</span>
+          <span>Linux</span>
+          <span>Python</span>
+          <span>Flask</span>
+          <span>Django</span>
+          <span>REST APIs</span>
+          <span>PostgreSQL</span>
+          <span>MySQL</span>
+          <span>AWS Lambda</span>
+          <span>ServiceM8 API</span>
+        </div>
+      </section>
+
+      <section class="section-shell split-section" id="work">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Experience timeline</p>
+          <h2>Systems, automations, and backend delivery across remote teams.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-card reveal tilt-card">
+            <div class="timeline-date">Nov 2023 - Apr 2026</div>
+            <div>
+              <h3>Software Developer</h3>
+              <p class="company">Workabot.ai . Dubai, UAE . Remote</p>
+              <ul>
+                <li>
+                  Developed Python backend applications and Flask-based serverless services for
+                  data integrations and automation workflows.
+                </li>
+                <li>
+                  Created SQL transformation and validation logic to clean, synchronize, and improve
+                  reliability across business systems.
+                </li>
+                <li>
+                  Built AWS Lambda and n8n workflows for data synchronization and API automation,
+                  reducing manual intervention.
+                </li>
+                <li>
+                  Delivered HubSpot CRM integrations including API connections, workflow automation,
+                  field mapping, and admin configuration.
+                </li>
+                <li>
+                  Maintained enterprise pipelines syncing SQL and HubSpot, later extending them with
+                  Power Automate and Python for insurance tracking and Samsara data workflows.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal tilt-card">
+            <div class="timeline-date">Feb 2023 - Nov 2023</div>
+            <div>
+              <h3>Junior Software Developer</h3>
+              <p class="company">Learners.ai . Ontario, Canada . Remote</p>
+              <ul>
+                <li>Developed Python automation scripts and backend tools for internal teams.</li>
+                <li>Integrated third-party systems with focus on authentication and data consistency.</li>
+                <li>Supported AWS-based automation, debugging, deployment checks, and maintenance.</li>
+                <li>
+                  Worked with product and operations teams to clarify requirements, deliver fixes,
+                  and improve existing automation processes.
+                </li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="timeline-card reveal tilt-card">
+            <div class="timeline-date">Jun 2019 - Sep 2019</div>
+            <div>
+              <h3>Python Intern</h3>
+              <p class="company">PNY Trainings . Lahore, Pakistan</p>
+              <ul>
+                <li>Built and debugged Python web applications using Django and Flask.</li>
+                <li>
+                  Created REST API endpoints and worked on database models, relationships, and
+                  application data flow.
+                </li>
+                <li>Collaborated on backend logic, bug fixes, and application stability improvements.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell case-study-section" id="case-study">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Signature integration</p>
+          <h2>HubSpot to ServiceM8 automation built like a production workflow engine.</h2>
+        </div>
+
+        <div class="case-hero reveal">
+          <div class="case-copy">
+            <div class="case-kicker">
+              <span>Public Repo</span>
+              <strong>FSE ServiceM8 Integration</strong>
+            </div>
+            <h3>CRM deal stages trigger field-service jobs without manual handoff.</h3>
+            <p>
+              A Flask-based webhook service that connects HubSpot CRM with ServiceM8. It receives
+              HubSpot and ServiceM8 events, queues handlers in a background worker, creates ServiceM8
+              clients and jobs from HubSpot deals, prevents duplicate job creation through stored
+              ServiceM8 IDs, and keeps quote/schedule stages synchronized back to HubSpot.
+            </p>
+            <div class="case-actions">
+              <a
+                class="button primary magnetic"
+                href="https://github.com/fahad756/FSE-SeriveM8-Integration"
+                target="_blank"
+                rel="noreferrer"
+              >
+                View GitHub Repo
+              </a>
+              <a class="button ghost magnetic" href="#stack">See Stack</a>
+            </div>
+          </div>
+
+          <div class="integration-map tilt-card" aria-label="HubSpot ServiceM8 integration map">
+            <div class="map-grid"></div>
+            <div class="map-node hubspot-node">
+              <span>HubSpot</span>
+              <small>Deals + Contacts</small>
+            </div>
+            <div class="map-node service-node">
+              <span>ServiceM8</span>
+              <small>Clients + Jobs</small>
+            </div>
+            <div class="map-node worker-node">
+              <span>Flask Queue</span>
+              <small>Webhook Worker</small>
+            </div>
+            <div class="map-link link-a"></div>
+            <div class="map-link link-b"></div>
+            <div class="map-pulse pulse-a"></div>
+            <div class="map-pulse pulse-b"></div>
+          </div>
+        </div>
+
+        <div class="case-flow reveal">
+          <article>
+            <span>01</span>
+            <h3>Stage-gated job creation</h3>
+            <p>
+              Creates ServiceM8 jobs only when the HubSpot deal reaches the configured consult stage
+              and does not already have an <code>sm8_job_id</code>.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>CRM association handling</h3>
+            <p>
+              Reads associated HubSpot contact data, creates or reuses the ServiceM8 client, then
+              stores ServiceM8 client/job UUIDs back in HubSpot.
+            </p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Bidirectional status sync</h3>
+            <p>
+              Handles quote sent, quote accepted, scheduled activity, and work-order updates to keep
+              HubSpot deal stages aligned with ServiceM8 activity.
+            </p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>Async webhook processing</h3>
+            <p>
+              Uses a background queue worker so webhook requests can return quickly while handlers
+              process API calls and logging safely.
+            </p>
+          </article>
+        </div>
+
+        <div class="code-showcase reveal tilt-card">
+          <div class="terminal-chrome">
+            <span></span>
+            <span></span>
+            <span></span>
+            <strong>integration-flow.py</strong>
+          </div>
+          <pre><code>POST /webhook
+  -> identify object type
+  -> queue handler
+  -> validate HubSpot deal stage
+  -> create ServiceM8 client + job + contact
+  -> write sm8_client_id and sm8_job_id back to HubSpot
+  -> sync quote, schedule, and work-order status changes</code></pre>
+        </div>
+      </section>
+
+      <section class="section-shell projects-section" id="projects">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Featured builds</p>
+          <h2>Project slots designed to look strong now and scale as you add more work.</h2>
+        </div>
+
+        <div class="project-console reveal">
+          <span>PROJECT_STATUS</span>
+          <strong>1 production integration + 1 academic AI build loaded</strong>
+          <em>2 cinematic placeholders ready for future case studies</em>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured reveal tilt-card">
+            <div class="card-glow"></div>
+            <span class="project-index">01</span>
+            <h3>HubSpot + ServiceM8 Integration Engine</h3>
+            <p>
+              Flask webhook backend that automates HubSpot deal handoffs into ServiceM8 jobs,
+              maps contacts, stores external IDs, and keeps quote/schedule stages synchronized.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/fahad756/FSE-SeriveM8-Integration"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open repository
+            </a>
+            <div class="tag-row">
+              <span>Python</span>
+              <span>Flask</span>
+              <span>HubSpot API</span>
+              <span>ServiceM8 API</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <span class="project-index">02</span>
+            <h3>Student Attendance Deep Entity Naming</h3>
+            <p>
+              Final-year AI attendance system using webcam face recognition, OpenCV, facial
+              encodings, CSV/MySQL storage, and a PHP dashboard for student records and reports.
+            </p>
+            <a
+              class="project-link"
+              href="https://github.com/fahad756/StudentAttendance-DeepEntityNaming"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Open FYP repository
+            </a>
+            <div class="tag-row">
+              <span>OpenCV</span>
+              <span>face_recognition</span>
+              <span>MySQL</span>
+              <span>Python</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <span class="project-index">03</span>
+            <h3>Automation Command Center</h3>
+            <p>
+              Placeholder for a future dashboard or workflow project. Add screenshots, GitHub links,
+              and measurable impact when ready.
+            </p>
+            <div class="tag-row">
+              <span>Coming Soon</span>
+              <span>Workflow UI</span>
+            </div>
+          </article>
+
+          <article class="project-card reveal tilt-card">
+            <span class="project-index">04</span>
+            <h3>API Reliability Toolkit</h3>
+            <p>
+              Placeholder for reusable API utilities: retries, logging, validation, auth adapters,
+              and deployment helpers.
+            </p>
+            <div class="tag-row">
+              <span>Coming Soon</span>
+              <span>Backend</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell lab-section" id="stack">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Interactive stack lab</p>
+          <h2>Click a stack mode and watch the terminal switch context.</h2>
+        </div>
+
+        <div class="lab-grid">
+          <div class="stack-panel reveal">
+            <button class="stack-button active" type="button" data-stack="backend">Backend</button>
+            <button class="stack-button" type="button" data-stack="automation">Automation</button>
+            <button class="stack-button" type="button" data-stack="data">Data</button>
+            <button class="stack-button" type="button" data-stack="vision">Vision AI</button>
+            <button class="stack-button" type="button" data-stack="cloud">Cloud</button>
+          </div>
+
+          <div class="terminal-panel reveal tilt-card" aria-live="polite">
+            <div class="terminal-chrome">
+              <span></span>
+              <span></span>
+              <span></span>
+              <strong>fahad@portfolio</strong>
+            </div>
+            <pre id="stack-output"></pre>
+          </div>
+        </div>
+
+        <div class="skills-cloud reveal">
+          <span>Python</span>
+          <span>Django</span>
+          <span>Flask</span>
+          <span>REST APIs</span>
+          <span>PostgreSQL</span>
+          <span>MySQL</span>
+          <span>OpenCV</span>
+          <span>face_recognition</span>
+          <span>Data Validation</span>
+          <span>Data Transformation</span>
+          <span>HubSpot CRM API</span>
+          <span>ServiceM8 API</span>
+          <span>Webhooks</span>
+          <span>n8n</span>
+          <span>Power Automate</span>
+          <span>Zapier</span>
+          <span>Hightouch</span>
+          <span>PHP Dashboard</span>
+          <span>AWS Lambda</span>
+          <span>Git</span>
+          <span>Linux</span>
+        </div>
+      </section>
+
+      <section class="section-shell credentials-section">
+        <div class="credential-card reveal tilt-card">
+          <p class="eyebrow">Certifications</p>
+          <h2>AWS + HubSpot certified backend builder.</h2>
+          <div class="credential-grid">
+            <article>
+              <span>2024</span>
+              <h3>AWS Certified Cloud Practitioner</h3>
+            </article>
+            <article>
+              <span>2024</span>
+              <h3>HubSpot Architecture I: Data Models and APIs</h3>
+            </article>
+            <article>
+              <span>2024</span>
+              <h3>HubSpot Integration Foundations + Data Integration</h3>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-shell contact-section" id="contact">
+        <div class="contact-card reveal">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Need a backend developer who can automate the messy parts?</h2>
+            <p>
+              I am available for full-time backend roles and selected freelance automation work.
+              Send me the problem, the stack, and the outcome you want.
+            </p>
+          </div>
+          <div class="contact-actions">
+            <a class="button primary magnetic" href="mailto:fahadwaseem756@gmail.com">Email Me</a>
+            <a
+              class="button ghost magnetic"
+              href="https://linkedin.com/in/fahad-waseem"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
+            <button class="button ghost magnetic" type="button" id="copy-email">
+              Copy Email
+            </button>
+            <a class="button quiet magnetic" href="https://github.com/fahad756" target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="quick-dock" aria-label="Quick actions">
+      <a href="#home">Home</a>
+      <a href="#case-study">Case</a>
+      <button type="button" id="dock-command">Matrix</button>
+      <a href="https://linkedin.com/in/fahad-waseem" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="./CV%20-%20Fahad%20Waseem.pdf" target="_blank" rel="noreferrer">CV</a>
+    </div>
+
+    <footer class="site-footer">
+      <p>Designed and developed by Fahad Waseem.</p>
+      <a href="#home">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
