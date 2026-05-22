@@ -1,0 +1,24 @@
+name = "portfolio"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# ──────────────────────────────────────────────
+# SETUP INSTRUCTIONS — run once before deploying
+# ──────────────────────────────────────────────
+# 1. Install wrangler:   npm install
+# 2. Login to Cloudflare: npx wrangler login
+# 3. Create KV namespace: npx wrangler kv namespace create PORTFOLIO_DATA
+#    Copy the id returned and paste it below ↓
+# 4. Create preview KV:   npx wrangler kv namespace create PORTFOLIO_DATA --preview
+#    Copy the preview_id returned and paste it below ↓
+# 5. Deploy:              npm run deploy
+# ──────────────────────────────────────────────
+
+[[kv_namespaces]]
+binding = "PORTFOLIO_DATA"
+id = "489bdefbed954dd3bb11dc9bfd89fc95"
+preview_id = "f44761c8cbe64c05b9d1e9f89f53ff08"

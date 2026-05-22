@@ -1,6 +1,12 @@
-# wrangler files
-.wrangler
-.dev.vars*
-!.dev.vars.example
-.env*
-!.env.example
+# Wrangler and environment files
+.wrangler/
+.dev.vars
+.dev.vars.example
+.env
+.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/

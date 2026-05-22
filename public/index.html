@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Fahad Waseem — Python backend developer building APIs, automation workflows, data pipelines, and CRM integrations."/>
+  <meta name="author" content="Fahad Waseem"/>
+  <meta property="og:title" content="Fahad Waseem | Backend Developer"/>
+  <meta property="og:description" content="Portfolio of Fahad Waseem — Python backend developer. APIs, automation, HubSpot, AWS Lambda, data workflows."/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <title>Fahad Waseem | Backend Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./styles.css"/>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="scroll-bar" id="scroll-bar" aria-hidden="true"></div>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#home" aria-label="Fahad Waseem — home">
+        <span class="brand-mark">FW</span>
+      </a>
+
+      <div class="nav-links" id="nav-links" role="navigation" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-right">
+        <a class="btn btn-sm btn-primary nav-cta" href="mailto:fahadwaseem756@gmail.com">Hire me ↗</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ─── HERO ───────────────────────────────────────────── -->
+    <section id="home" class="section hero">
+      <div class="container hero-layout">
+
+        <!-- Left: text content -->
+        <div class="hero-text">
+          <div class="avail-badge reveal">
+            <span class="dot-pulse"></span>
+            Available for work
+          </div>
+
+          <h1 class="hero-name reveal">
+            Hey, I'm<br>
+            <span class="grad-text">Fahad</span><br>
+            Waseem.
+          </h1>
+
+          <p class="hero-role reveal">Backend Developer</p>
+
+          <p class="hero-bio reveal">
+            Building backend systems that move data with speed, clarity, and control.
+            <br>Python · APIs · Automation · Data Workflows.
+          </p>
+
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-outline" href="./CV%20-%20Fahad%20Waseem.pdf" download>Download CV ↓</a>
+          </div>
+
+          <div class="hero-socials reveal">
+            <a href="https://github.com/FahadWaseem75" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://linkedin.com/in/fahad-waseem" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <span aria-hidden="true">·</span>
+            <a href="mailto:fahadwaseem756@gmail.com">Email</a>
+          </div>
+        </div>
+
+        <!-- Right: animated NFT avatar -->
+        <div class="hero-visual reveal">
+          <div class="avatar-float">
+            <svg viewBox="0 0 280 310" xmlns="http://www.w3.org/2000/svg" class="avatar-svg" aria-hidden="true">
+              <defs>
+                <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0A0D1A"/>
+                  <stop offset="100%" stop-color="#0D1124"/>
+                </linearGradient>
+                <linearGradient id="frameGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#4F90FF"/>
+                  <stop offset="40%" stop-color="#9B6DFF"/>
+                  <stop offset="70%" stop-color="#4F90FF"/>
+                  <stop offset="100%" stop-color="#9B6DFF"/>
+                </linearGradient>
+                <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M20 0H0V20" fill="none" stroke="#4F90FF" stroke-width="0.3" opacity="0.15"/>
+                </pattern>
+                <filter id="eyeGlow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="2.5" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <filter id="hpGlow" x="-100%" y="-100%" width="300%" height="300%">
+                  <feGaussianBlur stdDeviation="4" result="b"/>
+                  <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                </filter>
+                <clipPath id="cardClip">
+                  <rect x="3" y="3" width="274" height="304" rx="17"/>
+                </clipPath>
+              </defs>
+
+              <!-- Card background -->
+              <rect x="3" y="3" width="274" height="304" rx="17" fill="url(#bgGrad)"/>
+              <rect x="0" y="0" width="280" height="310" fill="url(#grid)" clip-path="url(#cardClip)"/>
+
+              <!-- Top labels -->
+              <text x="18" y="28" font-family="'JetBrains Mono',monospace" font-size="8" fill="#4F90FF" opacity="0.7" letter-spacing="0.8">PORTFOLIO.FW</text>
+              <text x="194" y="28" font-family="'JetBrains Mono',monospace" font-size="8" fill="#9B6DFF" opacity="0.7" letter-spacing="0.8">#0001</text>
+
+              <!-- Ambient glow -->
+              <circle cx="140" cy="158" r="80" fill="#4F90FF" opacity="0.03"/>
+              <circle cx="140" cy="158" r="55" fill="#9B6DFF" opacity="0.04"/>
+
+              <!-- Hair (drawn first, behind everything) -->
+              <ellipse cx="140" cy="95" rx="55" ry="34" fill="#0D0F1A"/>
+              <polygon points="118,64 112,97 134,93" fill="#0D0F1A"/>
+              <polygon points="140,55 134,93 146,93" fill="#0D0F1A"/>
+              <polygon points="162,64 168,97 146,93" fill="#0D0F1A"/>
+              <polygon points="106,77 104,97 120,94" fill="#0D0F1A"/>
+              <polygon points="174,77 176,97 160,94" fill="#0D0F1A"/>
+
+              <!-- Headphone band -->
+              <path d="M 82,152 C 82,78 198,78 198,152" fill="none" stroke="#141D32" stroke-width="11" stroke-linecap="round"/>
+              <path d="M 82,152 C 82,78 198,78 198,152" fill="none" stroke="#1C2C4A" stroke-width="5" stroke-linecap="round"/>
+
+              <!-- Head -->
+              <circle cx="140" cy="158" r="62" fill="#1C2035"/>
+              <ellipse cx="124" cy="136" rx="24" ry="15" fill="rgba(255,255,255,0.025)"/>
+
+              <!-- Ears -->
+              <ellipse cx="79" cy="158" rx="10" ry="15" fill="#1C2035"/>
+              <ellipse cx="201" cy="158" rx="10" ry="15" fill="#1C2035"/>
+
+              <!-- Glasses -->
+              <rect x="96" y="144" width="38" height="26" rx="7" fill="rgba(79,144,255,0.09)" stroke="#4F90FF" stroke-width="2.5"/>
+              <rect x="146" y="144" width="38" height="26" rx="7" fill="rgba(79,144,255,0.09)" stroke="#4F90FF" stroke-width="2.5"/>
+              <line x1="134" y1="157" x2="146" y2="157" stroke="#4F90FF" stroke-width="2.5"/>
+              <line x1="96" y1="157" x2="79" y2="154" stroke="#3D7AE8" stroke-width="2"/>
+              <line x1="184" y1="157" x2="201" y2="154" stroke="#3D7AE8" stroke-width="2"/>
+
+              <!-- Left eye -->
+              <circle cx="115" cy="157" r="7" fill="#08091A"/>
+              <circle cx="115" cy="157" r="4.5" fill="#4F90FF" filter="url(#eyeGlow)">
+                <animate attributeName="r" values="4.5;0.4;4.5" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;0.1;1" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="116.5" cy="155.5" r="1.5" fill="rgba(255,255,255,0.85)"/>
+
+              <!-- Right eye -->
+              <circle cx="165" cy="157" r="7" fill="#08091A"/>
+              <circle cx="165" cy="157" r="4.5" fill="#4F90FF" filter="url(#eyeGlow)">
+                <animate attributeName="r" values="4.5;0.4;4.5" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="1;0.1;1" dur="5s" begin="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="166.5" cy="155.5" r="1.5" fill="rgba(255,255,255,0.85)"/>
+
+              <!-- Nose -->
+              <path d="M 137,172 L 140,180 L 143,172" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1.5" stroke-linejoin="round"/>
+
+              <!-- Mouth -->
+              <path d="M 127,190 Q 140,198 153,190" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- Headphone cups -->
+              <circle cx="79" cy="158" r="18" fill="#0B1122" stroke="#14213A" stroke-width="1.5"/>
+              <circle cx="79" cy="158" r="12" fill="#0A1A38">
+                <animate attributeName="fill" values="#0A1A38;#153060;#0A1A38" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="79" cy="158" r="7.5" fill="#4F90FF" opacity="0.85" filter="url(#hpGlow)">
+                <animate attributeName="opacity" values="0.85;1;0.85" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+
+              <circle cx="201" cy="158" r="18" fill="#0B1122" stroke="#200F2A" stroke-width="1.5"/>
+              <circle cx="201" cy="158" r="12" fill="#130B30">
+                <animate attributeName="fill" values="#130B30;#2A1560;#130B30" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+              <circle cx="201" cy="158" r="7.5" fill="#9B6DFF" opacity="0.85" filter="url(#hpGlow)">
+                <animate attributeName="opacity" values="0.85;1;0.85" dur="2.5s" repeatCount="indefinite"/>
+              </circle>
+
+              <!-- Body / Hoodie -->
+              <path d="M 62,290 L 79,228 C 94,216 116,210 140,210 C 164,210 186,216 201,228 L 218,290 Z" fill="#10141E"/>
+              <path d="M 112,212 Q 126,226 140,222 Q 154,226 168,212" fill="none" stroke="#182030" stroke-width="3"/>
+              <line x1="140" y1="216" x2="140" y2="254" stroke="#182030" stroke-width="2.5"/>
+              <rect x="111" y="250" width="58" height="34" rx="11" fill="#0C1420"/>
+              <text x="122" y="271" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F90FF" opacity="0.45">{ py }</text>
+
+              <!-- Floating code symbols -->
+              <text x="14" y="76" font-family="monospace" font-size="12" fill="#4F90FF" opacity="0.38" transform="rotate(-14,14,76)">
+                &lt;/&gt;<animate attributeName="opacity" values="0.38;0.72;0.38" dur="3.8s" repeatCount="indefinite"/>
+              </text>
+              <text x="218" y="72" font-family="monospace" font-size="12" fill="#9B6DFF" opacity="0.38" transform="rotate(10,218,72)">
+                { }<animate attributeName="opacity" values="0.38;0.72;0.38" dur="3.0s" begin="0.9s" repeatCount="indefinite"/>
+              </text>
+              <text x="16" y="258" font-family="monospace" font-size="9" fill="#4F90FF" opacity="0.2">
+                //dev<animate attributeName="opacity" values="0.2;0.45;0.2" dur="4.5s" begin="0.3s" repeatCount="indefinite"/>
+              </text>
+              <text x="216" y="264" font-family="monospace" font-size="9" fill="#9B6DFF" opacity="0.2">
+                0xFW<animate attributeName="opacity" values="0.2;0.45;0.2" dur="3.8s" begin="1.4s" repeatCount="indefinite"/>
+              </text>
+
+              <!-- Bottom label -->
+              <line x1="18" y1="288" x2="262" y2="288" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <text x="18" y="301" font-family="'JetBrains Mono',monospace" font-size="9" fill="#4F90FF" opacity="0.65">FW.eth</text>
+              <text x="196" y="301" font-family="'JetBrains Mono',monospace" font-size="9" fill="#9B6DFF" opacity="0.65">Backend Dev</text>
+
+              <!-- Frame border (on top) -->
+              <rect x="1" y="1" width="278" height="308" rx="19" fill="none" stroke="url(#frameGrad)" stroke-width="1.5" opacity="0.85"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="container">
+        <div class="stats-row reveal">
+          <div class="stat"><strong>3+</strong><span>Years backend engineering</span></div>
+          <div class="stat"><strong>10+</strong><span>API integrations shipped</span></div>
+          <div class="stat"><strong>3</strong><span>Companies · Remote &amp; On-site</span></div>
+          <div class="stat"><strong>AWS</strong><span>Cloud Practitioner certified</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MARQUEE ────────────────────────────────────────── -->
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Python</span><span>Flask</span><span>Django</span><span>REST APIs</span>
+        <span>PostgreSQL</span><span>MySQL</span><span>AWS Lambda</span><span>HubSpot</span>
+        <span>ServiceM8 API</span><span>Webhooks</span><span>n8n</span><span>Power Automate</span>
+        <span>Zapier</span><span>OpenCV</span><span>face_recognition</span><span>Git</span>
+        <span>Linux</span><span>Cloudflare Workers</span>
+        <!-- duplicate for seamless loop -->
+        <span>Python</span><span>Flask</span><span>Django</span><span>REST APIs</span>
+        <span>PostgreSQL</span><span>MySQL</span><span>AWS Lambda</span><span>HubSpot</span>
+        <span>ServiceM8 API</span><span>Webhooks</span><span>n8n</span><span>Power Automate</span>
+        <span>Zapier</span><span>OpenCV</span><span>face_recognition</span><span>Git</span>
+        <span>Linux</span><span>Cloudflare Workers</span>
+      </div>
+    </div>
+
+    <!-- ─── WORK EXPERIENCE ────────────────────────────────── -->
+    <section id="work" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Career</span>
+          <h2>Work Experience</h2>
+        </div>
+        <div class="timeline" id="work-list">
+          <div class="content-loader" aria-live="polite">Loading experience…</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PROJECTS ───────────────────────────────────────── -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Featured Work</span>
+          <h2>Projects</h2>
+        </div>
+        <div class="projects-grid" id="projects-grid">
+          <div class="content-loader" aria-live="polite">Loading projects…</div>
+        </div>
+        <div class="see-all-row" id="see-all-row" hidden>
+          <button class="btn btn-outline" id="see-all-btn">See all projects</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── STACK ───────────────────────────────────────────── -->
+    <section id="stack" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Tools &amp; Technologies</span>
+          <h2>Tech Stack</h2>
+        </div>
+        <div class="stack-grid reveal">
+          <div class="stack-group">
+            <h3>Backend</h3>
+            <div class="stack-tags">
+              <span>Python</span><span>Flask</span><span>Django</span>
+              <span>REST APIs</span><span>Webhooks</span><span>Async Workers</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3>Automation</h3>
+            <div class="stack-tags">
+              <span>HubSpot CRM API</span><span>ServiceM8</span><span>n8n</span>
+              <span>Power Automate</span><span>Zapier</span><span>Hightouch</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3>Data</h3>
+            <div class="stack-tags">
+              <span>PostgreSQL</span><span>MySQL</span><span>SQL</span>
+              <span>Data Validation</span><span>ETL Pipelines</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3>Cloud &amp; DevOps</h3>
+            <div class="stack-tags">
+              <span>AWS Lambda</span><span>Cloudflare Workers</span>
+              <span>Git</span><span>Linux</span><span>GitHub Actions</span>
+            </div>
+          </div>
+          <div class="stack-group">
+            <h3>Vision &amp; AI</h3>
+            <div class="stack-tags">
+              <span>OpenCV</span><span>face_recognition</span>
+              <span>NumPy</span><span>PHP Dashboard</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CERTIFICATIONS ─────────────────────────────────── -->
+    <section id="certifications" class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-label">Credentials</span>
+          <h2>Certifications</h2>
+        </div>
+        <div class="certs-grid reveal">
+          <div class="cert-card">
+            <span class="cert-year">2024</span>
+            <h3>AWS Certified Cloud Practitioner</h3>
+            <p>Amazon Web Services</p>
+          </div>
+          <div class="cert-card">
+            <span class="cert-year">2024</span>
+            <h3>HubSpot Architecture I: Data Models &amp; APIs</h3>
+            <p>HubSpot Academy</p>
+          </div>
+          <div class="cert-card">
+            <span class="cert-year">2024</span>
+            <h3>HubSpot Integration Foundations + Data Integration</h3>
+            <p>HubSpot Academy</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT ─────────────────────────────────────────── -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card reveal">
+          <span class="section-label">Let's Connect</span>
+          <h2>Need a backend developer<br class="hide-sm">who ships clean systems?</h2>
+          <p>Available for full-time backend roles and selected automation projects. Send me the problem, the stack, and what you need built.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:fahadwaseem756@gmail.com">Email Me ↗</a>
+            <a class="btn btn-outline" href="https://linkedin.com/in/fahad-waseem" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <button class="btn btn-ghost" id="copy-email-btn" type="button">Copy Email</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ─── FOOTER ────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>Designed &amp; built by Fahad Waseem — 2025.</span>
+      <a href="#home" class="back-top">↑ Back to top</a>
+    </div>
+  </footer>
+
+  <!-- Default data (used if API is unavailable) -->
+  <script id="initial-data" type="application/json">
+  {
+    "settings":{"name":"Fahad Waseem","title":"Backend Developer","subtitle":"Python · APIs · Automation · Data Workflows","bio":"Building backend systems that move data with speed, clarity, and control. Open to full-time backend roles.","location":"Paris, France","email":"fahadwaseem756@gmail.com","github":"https://github.com/FahadWaseem75","linkedin":"https://linkedin.com/in/fahad-waseem","available":true},
+    "projects":[
+      {"id":"1","title":"HubSpot + ServiceM8 Integration","description":"Flask webhook backend automating HubSpot deal handoffs into ServiceM8 jobs, with CRM association handling, duplicate prevention via stored IDs, and bidirectional status sync.","tags":["Python","Flask","HubSpot API","ServiceM8 API","Webhooks"],"github":"https://github.com/fahad756/FSE-SeriveM8-Integration","live":"","image":"","featured":true},
+      {"id":"2","title":"Student Attendance AI System","description":"Final-year AI attendance system using webcam face recognition, OpenCV facial encodings, CSV/MySQL storage, and a PHP dashboard for student records and reports.","tags":["Python","OpenCV","face_recognition","MySQL","PHP"],"github":"https://github.com/fahad756/StudentAttendance-DeepEntityNaming","live":"","image":"","featured":true}
+    ],
+    "experience":[
+      {"id":"1","role":"Software Developer","company":"Workabot.ai","location":"Dubai, UAE · Remote","period":"Nov 2023 – Apr 2026","current":true,"description":"Developed Python backend applications and Flask serverless services for data integrations. Built AWS Lambda and n8n pipelines, delivered HubSpot CRM integrations with field mapping and bidirectional sync. Maintained enterprise pipelines extending to Power Automate and Samsara data workflows.","tags":["Python","Flask","AWS Lambda","HubSpot","SQL","n8n","Power Automate"]},
+      {"id":"2","role":"Junior Software Developer","company":"Learners.ai","location":"Ontario, Canada · Remote","period":"Feb 2023 – Nov 2023","current":false,"description":"Developed Python automation scripts and backend tools for internal teams. Integrated third-party systems with focus on authentication and data consistency. Supported AWS-based automation, debugging, and deployment.","tags":["Python","AWS","REST APIs","Automation"]},
+      {"id":"3","role":"Python Intern","company":"PNY Trainings","location":"Lahore, Pakistan","period":"Jun 2019 – Sep 2019","current":false,"description":"Built and debugged Python web applications using Django and Flask. Created REST API endpoints, worked on database models, relationships, and application data flow.","tags":["Python","Django","Flask","REST APIs"]}
+    ]
+  }
+  </script>
+
+  <script src="./script.js"></script>
+</body>
+</html>
