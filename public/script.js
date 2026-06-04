@@ -38,6 +38,8 @@ function initNav() {
     navRight.insertBefore(btn, navRight.querySelector('.nav-avatar'));
   }
 
+  initMaintenanceBanner();
+
   const onScroll = () => nav.classList.toggle('scrolled', scrollY > 20);
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
@@ -53,6 +55,32 @@ function initNav() {
   document.addEventListener('click', e => {
     if (!nav.contains(e.target)) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
   });
+}
+
+async function initMaintenanceBanner() {
+  try {
+    const r = await fetch('/api/data');
+    if (!r.ok) return;
+    const { settings } = await r.json();
+    if (!settings?.maintenance) return;
+
+    const banner = document.createElement('div');
+    banner.id = 'maintenance-banner';
+    banner.className = 'maintenance-banner';
+    banner.setAttribute('role', 'status');
+    banner.innerHTML = `
+      <svg class="maintenance-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/>
+        <line x1="12" y1="8" x2="12" y2="12"/>
+        <circle cx="12" cy="16" r=".5" fill="currentColor" stroke="none"/>
+      </svg>
+      <span>This portfolio is currently under maintenance — you might find some bugs or incomplete work.</span>`;
+
+    document.body.insertBefore(banner, document.body.firstChild);
+
+    const nav = document.getElementById('nav');
+    if (nav) nav.style.top = banner.offsetHeight + 'px';
+  } catch {}
 }
 
 function initScrollBar() {

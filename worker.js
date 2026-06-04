@@ -21,6 +21,7 @@ const DEFAULT = {
     github: 'https://github.com/FahadWaseem75',
     linkedin: 'https://linkedin.com/in/fahad-waseem',
     available: true,
+    maintenance: false,
   },
   projects: [
     {
