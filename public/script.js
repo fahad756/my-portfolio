@@ -1,240 +1,198 @@
-/* Portfolio script — fetches API data, renders sections, handles UI */
+/* Shared utilities — loaded on every page */
 
-const EMAIL = 'fahadwaseem756@gmail.com';
-const INITIAL_VISIBLE_PROJECTS = 3;
-
-// ── Data ────────────────────────────────────────────────────────────────────
-function getEmbeddedData() {
-  try {
-    return JSON.parse(document.getElementById('initial-data')?.textContent ?? '{}');
-  } catch { return {}; }
+function initTheme() {
+  const saved = localStorage.getItem('fw_theme');
+  document.documentElement.setAttribute('data-theme', saved || 'dark');
 }
 
-async function loadData() {
-  try {
-    const r = await fetch('/api/data');
-    if (!r.ok) throw new Error('API error');
-    return await r.json();
-  } catch {
-    return getEmbeddedData();
-  }
+function toggleTheme() {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', next);
+  localStorage.setItem('fw_theme', next);
 }
 
-// ── Render: Experience ──────────────────────────────────────────────────────
-function renderExperience(list) {
-  const el = document.getElementById('work-list');
-  if (!el || !list?.length) return;
-  el.innerHTML = list.map((e, i) => `
-    <article class="exp-card reveal" style="transition-delay:${i * 80}ms">
-      ${e.current ? '<span class="exp-current">Current</span>' : ''}
-      <div class="exp-header">
-        <h3 class="exp-role">${e.role}</h3>
-        <span class="exp-period">${e.period}</span>
-      </div>
-      <p class="exp-company">${e.company}</p>
-      <p class="exp-location">${e.location}</p>
-      <p class="exp-desc">${e.description}</p>
-      <div class="tags">${e.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-    </article>
-  `).join('');
-  observeReveal(el.querySelectorAll('.reveal'));
-}
+function initNav() {
+  const nav = document.getElementById('nav');
+  const toggle = document.getElementById('nav-toggle');
+  const links = document.getElementById('nav-links');
+  if (!nav) return;
 
-// ── Render: Projects ─────────────────────────────────────────────────────────
-let allProjects = [];
-let showingAll = false;
+  initTheme();
+  initResumeLinks();
 
-function buildProjectCard(p, index) {
-  const imgHtml = p.image
-    ? `<img src="${p.image.startsWith('/api/images/') ? p.image : p.image}" alt="${p.title}" loading="lazy"/>`
-    : `<div class="project-placeholder"><span class="project-placeholder-icon">{${(index+1).toString().padStart(2,'0')}}</span></div>`;
-
-  const ghLink = p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer">GitHub ↗</a>` : '';
-  const liveLink = p.live ? `<a href="${p.live}" target="_blank" rel="noopener noreferrer">Live ↗</a>` : '';
-
-  return `
-    <article class="project-card${index >= INITIAL_VISIBLE_PROJECTS ? ' hidden' : ''}" data-id="${p.id}">
-      <div class="project-img-wrap">
-        ${imgHtml}
-        ${(ghLink || liveLink) ? `<div class="project-img-links">${ghLink}${liveLink}</div>` : ''}
-      </div>
-      <div class="project-body">
-        <span class="project-num">${(index+1).toString().padStart(2,'0')}</span>
-        <h3 class="project-title">${p.title}</h3>
-        <p class="project-desc">${p.description}</p>
-        <div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
-      </div>
-    </article>
-  `;
-}
-
-function renderProjects(list) {
-  const grid = document.getElementById('projects-grid');
-  const seeAllRow = document.getElementById('see-all-row');
-  const seeAllBtn = document.getElementById('see-all-btn');
-  if (!grid || !list?.length) return;
-
-  allProjects = list;
-  grid.innerHTML = list.map((p, i) => buildProjectCard(p, i)).join('');
-
-  if (list.length > INITIAL_VISIBLE_PROJECTS) {
-    seeAllRow?.removeAttribute('hidden');
-    const hidden = list.length - INITIAL_VISIBLE_PROJECTS;
-    if (seeAllBtn) seeAllBtn.textContent = `See all ${hidden} more project${hidden !== 1 ? 's' : ''} ↓`;
+  const navRight = nav.querySelector('.nav-right');
+  if (navRight && !document.getElementById('theme-toggle')) {
+    const btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.className = 'theme-toggle-pill';
+    btn.setAttribute('aria-label', 'Toggle theme');
+    btn.innerHTML = `
+      <svg class="t-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="12" cy="12" r="5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+      </svg>
+      <div class="theme-toggle-track"><div class="theme-toggle-thumb"></div></div>
+      <svg class="t-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>`;
+    btn.addEventListener('click', toggleTheme);
+    navRight.insertBefore(btn, navRight.querySelector('.nav-avatar'));
   }
 
-  observeReveal(grid.querySelectorAll('.project-card:not(.hidden)'));
-}
+  const onScroll = () => nav.classList.toggle('scrolled', scrollY > 20);
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
 
-function toggleSeeAll() {
-  const cards = document.querySelectorAll('#projects-grid .project-card.hidden');
-  const btn = document.getElementById('see-all-btn');
-  if (!cards.length) return;
-  showingAll = true;
-  cards.forEach((c, i) => {
-    c.classList.remove('hidden');
-    c.style.transitionDelay = `${i * 60}ms`;
-    // trigger paint before adding visible
-    requestAnimationFrame(() => c.classList.add('reveal', 'visible'));
+  if (!toggle) return;
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
   });
-  if (btn) {
-    btn.textContent = '↑ Show less';
-    btn.onclick = collapseSeeAll;
-  }
-}
-
-function collapseSeeAll() {
-  const grid = document.getElementById('projects-grid');
-  const btn = document.getElementById('see-all-btn');
-  if (!grid) return;
-  showingAll = false;
-  const cards = [...grid.querySelectorAll('.project-card')];
-  cards.forEach((c, i) => {
-    if (i >= INITIAL_VISIBLE_PROJECTS) c.classList.add('hidden');
+  links?.addEventListener('click', e => {
+    if (e.target.tagName === 'A') { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
   });
-  const hidden = allProjects.length - INITIAL_VISIBLE_PROJECTS;
-  if (btn) {
-    btn.textContent = `See all ${hidden} more project${hidden !== 1 ? 's' : ''} ↓`;
-    btn.onclick = toggleSeeAll;
-  }
-  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
+  document.addEventListener('click', e => {
+    if (!nav.contains(e.target)) { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); }
+  });
 }
 
-// ── Scroll animations ───────────────────────────────────────────────────────
+function initScrollBar() {
+  const bar = document.getElementById('scroll-bar');
+  if (!bar) return;
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = max > 0 ? `${(scrollY / max) * 100}%` : '0%';
+  };
+  addEventListener('scroll', update, { passive: true });
+  update();
+}
+
+function setActiveNav() {
+  const p = location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    const href = a.getAttribute('href');
+    const match = href === '/' ? p === '/' : p === href || p.startsWith(href + '/');
+    a.classList.toggle('active', match);
+  });
+}
+
 function observeReveal(items) {
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
+  if (!items?.length) return;
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
+  }, { threshold: 0.08 });
   items.forEach(el => io.observe(el));
 }
 
-// ── Scroll progress bar ──────────────────────────────────────────────────────
-function updateScrollBar() {
-  const bar = document.getElementById('scroll-bar');
-  if (!bar) return;
-  const max = document.documentElement.scrollHeight - innerHeight;
-  bar.style.width = max > 0 ? `${(scrollY / max) * 100}%` : '0%';
-}
-
-// ── Nav active section highlight ─────────────────────────────────────────────
-function setupNavHighlight() {
-  const sections = [...document.querySelectorAll('section[id]')];
-  const links = [...document.querySelectorAll('.nav-links a')];
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      links.forEach(l => {
-        l.classList.toggle('active', l.getAttribute('href') === `#${e.target.id}`);
-      });
-    });
-  }, { rootMargin: '-40% 0px -55%', threshold: 0 });
-  sections.forEach(s => io.observe(s));
-}
-
-// ── Nav scrolled state ───────────────────────────────────────────────────────
-function setupNavScroll() {
-  const nav = document.getElementById('nav');
-  if (!nav) return;
-  const handler = () => nav.classList.toggle('scrolled', scrollY > 20);
-  addEventListener('scroll', handler, { passive: true });
-  handler();
-}
-
-// ── Mobile nav toggle ────────────────────────────────────────────────────────
-function setupMobileNav() {
-  const toggle = document.getElementById('nav-toggle');
-  const nav = document.getElementById('nav');
-  const links = document.getElementById('nav-links');
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  links?.addEventListener('click', (e) => {
-    if (e.target.tagName === 'A') {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!nav.contains(e.target)) {
-      nav.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }
-  });
-}
-
-// ── Copy email ───────────────────────────────────────────────────────────────
 function showToast(msg) {
   const old = document.querySelector('.toast');
   if (old) old.remove();
   const t = document.createElement('div');
-  t.className = 'toast';
-  t.textContent = msg;
+  t.className = 'toast'; t.textContent = msg;
   document.body.appendChild(t);
   setTimeout(() => t.remove(), 2200);
 }
 
-async function copyEmail() {
+async function copyEmail(email) {
+  try { await navigator.clipboard.writeText(email); showToast('Email copied!'); }
+  catch { window.location.href = `mailto:${email}`; }
+}
+
+async function initResumeLinks() {
+  const links = document.querySelectorAll('[data-resume-link]');
+  if (!links.length) return;
   try {
-    await navigator.clipboard.writeText(EMAIL);
-    showToast('Email copied!');
+    const r = await fetch('/api/resume/meta');
+    if (!r.ok) throw new Error();
+    const meta = await r.json();
+    if (!meta.available) {
+      links.forEach(link => { link.hidden = true; });
+      return;
+    }
+    links.forEach(link => {
+      link.href = '/api/resume';
+      link.setAttribute('download', meta.filename || 'Resume.pdf');
+    });
   } catch {
-    window.location.href = `mailto:${EMAIL}`;
+    links.forEach(link => { link.href = '/api/resume'; });
   }
 }
 
-// ── Init ─────────────────────────────────────────────────────────────────────
-async function init() {
-  // Nav
-  setupMobileNav();
-  setupNavScroll();
-  setupNavHighlight();
-
-  // Scroll bar
-  addEventListener('scroll', updateScrollBar, { passive: true });
-
-  // Reveal: static elements
-  observeReveal(document.querySelectorAll('.reveal'));
-
-  // Copy email button
-  document.getElementById('copy-email-btn')?.addEventListener('click', copyEmail);
-
-  // See-all button
-  document.getElementById('see-all-btn')?.addEventListener('click', toggleSeeAll);
-
-  // Load & render dynamic data
-  const data = await loadData();
-  if (data.experience) renderExperience(data.experience);
-  if (data.projects)   renderProjects(data.projects);
+function buildProjectCard(p, i) {
+  return `
+    <a class="project-card reveal" href="/project/${p.id}">
+      <div class="project-img-wrap">
+        <div class="project-placeholder">
+          ${p.image ? `<img src="${p.image}" alt="" loading="lazy">` : ''}
+        </div>
+      </div>
+      <div class="project-foot">
+        <span class="project-foot-title">${p.title}</span>
+        <span class="project-foot-arrow">→</span>
+      </div>
+    </a>`;
 }
 
-document.addEventListener('DOMContentLoaded', init);
+function openExpModal(e) {
+  let overlay = document.getElementById('exp-modal-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'exp-modal-overlay';
+    overlay.className = 'exp-modal-overlay';
+    overlay.innerHTML = `
+      <div class="exp-modal" role="dialog" aria-modal="true">
+        <button class="exp-modal-close" aria-label="Close">✕</button>
+        <div id="exp-modal-body"></div>
+      </div>`;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', ev => { if (ev.target === overlay) closeExpModal(); });
+    overlay.querySelector('.exp-modal-close').addEventListener('click', closeExpModal);
+    document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeExpModal(); });
+  }
+  const bullets = e.description
+    .split('. ')
+    .map(s => s.trim().replace(/\.$/, ''))
+    .filter(s => s.length > 8);
+  document.getElementById('exp-modal-body').innerHTML = `
+    ${e.current ? '<span class="exp-current" style="display:inline-block;margin-bottom:14px">Current</span>' : ''}
+    <p class="exp-company">${e.company}</p>
+    <h2 style="font-size:1.25rem;font-weight:700;margin:4px 0 8px;line-height:1.2">${e.role}</h2>
+    <p class="exp-modal-meta">${e.location} &nbsp;·&nbsp; ${e.period}</p>
+    <ul class="exp-modal-bullets">
+      ${bullets.map(b => `<li>${b}</li>`).join('')}
+    </ul>
+    <div class="tags" style="margin-top:20px">
+      ${(e.tags || []).map(t => `<span class="tag">${t}</span>`).join('')}
+    </div>`;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeExpModal() {
+  document.getElementById('exp-modal-overlay')?.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function openPhotoPreview(url, alt) {
+  let lb = document.getElementById('shared-lightbox');
+  if (!lb) {
+    lb = document.createElement('div');
+    lb.id = 'shared-lightbox';
+    lb.className = 'lightbox';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.innerHTML = `<button class="lightbox-close" aria-label="Close">✕</button><img id="shared-lightbox-img" src="" alt=""/>`;
+    document.body.appendChild(lb);
+    lb.querySelector('.lightbox-close').addEventListener('click', closePhotoPreview);
+    lb.addEventListener('click', e => { if (e.target === lb) closePhotoPreview(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && lb.classList.contains('open')) closePhotoPreview(); });
+  }
+  lb.querySelector('#shared-lightbox-img').src = url;
+  lb.querySelector('#shared-lightbox-img').alt = alt || '';
+  lb.classList.add('open');
+}
+
+function closePhotoPreview() {
+  document.getElementById('shared-lightbox')?.classList.remove('open');
+}
